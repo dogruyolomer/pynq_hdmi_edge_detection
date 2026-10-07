@@ -9,6 +9,9 @@ This repository contains a real-time hardware image processing project developed
 * **IP Cores Used:** Digilent `dvi2rgb` (Decoder) and `rgb2dvi` (Encoder)
 * **Clocking:** A 200 MHz reference clock is provided to the decoder to ensure a stable HDMI lock.
 
+### Hardware Demonstration
+![Working System on Monitor](hardware_demo.jpeg)
+
 ## Project Phases
 
 ### Phase 1: HDMI Bypass System
@@ -31,6 +34,11 @@ The edge detection module works in two main steps:
 
 ### Preventing Timing Violations
 To prevent screen noise and timing issues at 74.25 MHz pixel clock, the Verilog code uses a basic pipeline design. The input signals, mathematical calculations, and output signals are registered at different clock cycles. This ensures that the data is processed smoothly without signal traffic.
+
+## System Architecture
+The following block design shows how the IPs and the custom Verilog filter module are connected in Vivado:
+
+![Vivado Block Design](block_design.png)
 
 ## Repository Contents
 * `color_invert_filter.v`: The main Verilog module that contains the grayscale and edge detection logic.
